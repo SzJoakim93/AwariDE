@@ -49,6 +49,23 @@ public class InGameButtons : MonoBehaviour
         SceneManager.LoadScene("InGame");
     }
 
+    public void NextLevel()
+    {
+        selectedButton = SelectedButton.NextLevel;
+
+        if ((int)Global.difficult < 7)
+        {
+            Global.difficult++;
+        }
+        
+        if (AdManager.ShowAd())
+        {
+            return;
+        }
+        
+        SceneManager.LoadScene("InGame");
+    }
+
     public void Quit()
     {
         selectedButton = SelectedButton.QuitToMenu;

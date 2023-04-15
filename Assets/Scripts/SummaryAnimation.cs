@@ -14,6 +14,8 @@ public class SummaryAnimation : MonoBehaviour
     [SerializeField] GameObject buttons;
     [SerializeField] AudioSource pointCountSound;
     [SerializeField] Button rewardBtn;
+    [SerializeField] GameObject newGameBtn;
+    [SerializeField] GameObject nextGameBtn;
     [SerializeField] GameObject spark;
 
     bool isStarted = false;
@@ -22,6 +24,7 @@ public class SummaryAnimation : MonoBehaviour
     float delayDuration = 0.0f;
     int collectedXp;
     int collectedXpPrev;
+    int difficultAvaiablePrev;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,12 @@ public class SummaryAnimation : MonoBehaviour
                 buttons.SetActive(true);
                 pointCountSound.Stop();
                 player.Save();
+
+                if (player.DifficultAvaiable() > difficultAvaiablePrev)
+                {
+                    newGameBtn.SetActive(false);
+                    nextGameBtn.SetActive(true);
+                }
             }
         }
     }
@@ -72,6 +81,7 @@ public class SummaryAnimation : MonoBehaviour
         gameObject.SetActive(true);
         isStarted = true;
         timeOnstart = Time.timeSinceLevelLoad;
+        difficultAvaiablePrev = player.DifficultAvaiable();
         this.collectedXp = this.collectedXpPrev = collectedXp;
         delayDuration = 2.5f / (float)collectedXp;
     }

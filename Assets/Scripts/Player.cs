@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         set
         {
             level = value;
+            progressBar.OnVariableChange((float)(xP-levelTressHolds[level-1]) / (float)(levelTressHolds[level]-levelTressHolds[level-1]));
             levelTitle.text = value.ToString();
         }
     }
@@ -122,7 +123,7 @@ public class Player : MonoBehaviour
     public bool IsDifficultLevelRequirementsMeeted()
     {
         int diffAvaiable = DifficultAvaiable();
-        return diffAvaiable == 7 || difficultCompleted >= diffAvaiable;
+        return diffAvaiable == 7 || difficultCompleted + 2 > diffAvaiable;
     }
 
     public bool IsLevelRequirementsMeeted()

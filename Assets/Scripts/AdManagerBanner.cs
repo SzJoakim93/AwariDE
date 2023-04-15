@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using GoogleMobileAds;
@@ -34,6 +35,11 @@ public class AdManagerBanner : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        DestroyAd();
+    }
+
     public void CreateBannerView()
     {
         Debug.Log("Creating banner view");
@@ -66,5 +72,15 @@ public class AdManagerBanner : MonoBehaviour
         // send the request to load the ad.
         Debug.Log("Loading banner ad.");
         _bannerView.LoadAd(adRequest);
+    }
+
+    public void DestroyAd()
+    {
+        if (_bannerView != null)
+        {
+            Debug.Log("Destroying banner ad.");
+            _bannerView.Destroy();
+            _bannerView = null;
+        }
     }
 }
