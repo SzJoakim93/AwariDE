@@ -98,7 +98,7 @@ public class AdManagerInterstitial : MonoBehaviour
         }
     }
 
-    private void OnDestory(object sender, EventArgs args)
+    private void OnDestroy()
     {
         interstitialAd.Destroy();
     }

@@ -22,6 +22,7 @@
       <element name="/Canvas/AboutMenu/Panel/PublishLabel">Publish place:</element>
       <element name="/Canvas/AboutMenu/Panel/ReleasedDate">Release date:</element>
       <element name="/Canvas/AboutMenu/Panel/VersionLabel">Version:</element>
+      <element name="/Canvas/AboutMenu/Panel/IconsLabel">Source of icons:</element>
       <element name="/Canvas/SettingsMenu/SoundLabel">Sound</element>
       <element name="/Canvas/SettingsMenu/MusicLabel">Music</element>
       <element name="/Canvas/SettingsMenu/LanguageLabel">Language</element>
@@ -65,6 +66,15 @@
       <dynamic-text name="Unimplemented">This service is not yet implemented.</dynamic-text>
       <dynamic-text name="GetName1">What's your name?</dynamic-text>
       <dynamic-text name="GetName2">What's the second player's name?</dynamic-text>
+      <dynamic-text name="ToDoDifficult">* Complete\n   {0}\n   difficult\n</dynamic-text>
+      <dynamic-text name="ToDoLevel">* Reach level {0}</dynamic-text>
+      <dynamic-text name="DifficultLevel1">Trainee</dynamic-text>
+      <dynamic-text name="DifficultLevel2">Rookie</dynamic-text>
+      <dynamic-text name="DifficultLevel3">Standard</dynamic-text>
+      <dynamic-text name="DifficultLevel4">Advanced</dynamic-text>
+      <dynamic-text name="DifficultLevel5">Semi-pro</dynamic-text>
+      <dynamic-text name="DifficultLevel6">Pro</dynamic-text>
+      <dynamic-text name="DifficultLevel7">The Master</dynamic-text>
     </Menu>
     <InGame>
       <element name="/Canvas/PausePanel/Title">Pause</element>
@@ -133,6 +143,7 @@
       <element name="/Canvas/AboutMenu/Panel/PublishLabel">Terjesztés helye:</element>
       <element name="/Canvas/AboutMenu/Panel/ReleasedDate">Megjelenés dt.:</element>
       <element name="/Canvas/AboutMenu/Panel/VersionLabel">Verzió:</element>
+      <element name="/Canvas/AboutMenu/Panel/IconsLabel">Ikonok forrása:</element>
       <element name="/Canvas/SettingsMenu/SoundLabel">Hang</element>
       <element name="/Canvas/SettingsMenu/MusicLabel">Zene</element>
       <element name="/Canvas/SettingsMenu/LanguageLabel">Nyelv</element>
@@ -176,6 +187,15 @@
       <dynamic-text name="Unimplemented">Ez a funkció még nem érhető el.</dynamic-text>
       <dynamic-text name="GetName1">Hogy szólíthatlak?</dynamic-text>
       <dynamic-text name="GetName2">Hogy szólíthatom a második játékost?</dynamic-text>
+      <dynamic-text name="ToDoDifficult">* Teljesítsd a\n   {0}\n   nehézségi\n   szintet\n</dynamic-text>
+      <dynamic-text name="ToDoLevel">* Érd el a {0}.\n   szintet</dynamic-text>
+      <dynamic-text name="DifficultLevel1">Gyakornok</dynamic-text>
+      <dynamic-text name="DifficultLevel2">Újonc</dynamic-text>
+      <dynamic-text name="DifficultLevel3">Sztenderd</dynamic-text>
+      <dynamic-text name="DifficultLevel4">Haladó</dynamic-text>
+      <dynamic-text name="DifficultLevel5">Fél-profi</dynamic-text>
+      <dynamic-text name="DifficultLevel6">Profi</dynamic-text>
+      <dynamic-text name="DifficultLevel7">A Mester</dynamic-text>
     </Menu>
     <InGame>
       <element name="/Canvas/PausePanel/Title">Szünet</element>

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class Menu : MonoBehaviour
     [SerializeField] InputDialog inputDialog;
     [SerializeField] Button rewardBtn;
     [SerializeField] Tutorial tutorial;
+    [SerializeField] Text toDoText;
+    [SerializeField] GameObject toDoPanel;
 
     GameObject actualMenu;
     // Start is called before the first frame update
@@ -34,6 +37,8 @@ public class Menu : MonoBehaviour
         {
             DisableRewardButton();
         }
+
+        RefreshToDo();
     }
 
     // Update is called once per frame
@@ -88,7 +93,7 @@ public class Menu : MonoBehaviour
 
         rewardBtn.interactable = false;
         messageDialog.Popup(string.Format(languageManager.GetTextByValue("Congratulations"), (int)(50 * (1+ (0.25f) * player.Level))));
-        //messageDialog.Popup($"Congratualtions! You rewarded {(int)(50 * (1+ (0.25f) * player.Level))} XP");
+        RefreshToDo();
     }
 
     public void DisableRewardButton()
@@ -129,6 +134,11 @@ public class Menu : MonoBehaviour
         inputDialog.Popup(languageManager.GetTextByValue("GetName2"), SetName2AndStartGame);
     }
 
+    public void HyperLink(string link)
+    {
+        Application.OpenURL(link);
+    }
+
     private void SetName1(string name)
     {
         player.SetPlayerName(0, name);
@@ -150,6 +160,26 @@ public class Menu : MonoBehaviour
         if (player.IsFirstPlay)
         {
             questionDialog.Popup(languageManager.GetTextByValue("_TutorialRequest"), tutorial.StartVideo, null);
+            player.IsFirstPlay = false;
+        }
+    }
+
+    private void RefreshToDo()
+    {
+        if (player.DifficultAvaiable() == 7)
+        {
+            toDoPanel.SetActive(false);
+        }
+        List<string> difficultStrings = languageManager.GetTextByValueRange("DifficultLevel").ToList();
+        toDoText.text = "";
+        if (!player.IsDifficultLevelRequirementsMeeted())
+        {
+            toDoText.text += string.Format(languageManager.GetTextByValue("ToDoDifficult").Replace("\\n", "\n"), difficultStrings[player.DifficultAvaiable()-1]);
+        }
+
+        if (!player.IsLevelRequirementsMeeted())
+        {
+            toDoText.text += string.Format(languageManager.GetTextByValue("ToDoLevel").Replace("\\n", "\n"), player.Level+1);
         }
     }
 }
